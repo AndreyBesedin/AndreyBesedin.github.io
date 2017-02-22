@@ -1,37 +1,46 @@
-## Welcome to GitHub Pages
+## Work progress
 
-You can use the [editor on GitHub](https://github.com/AndreyBesedin/AndreyBesedin.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+The plan for today was: 
+- Assist to the seminar from Yann Olivier about information theory in Deep Learning
+- Try to talk to Yann Olivier about his publication about RNNs with no backProp
+- Bring the registration papers to EDITE
+- Validate my list of courses for PIF
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+All the paper work (registration and courses) was successfully done
 
-### Markdown
+## The small resume of the seminar:
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+The talk was mainly about what learning is from mathematical point of view and the relashions between information theory and Neural Networks.
 
-```markdown
-Syntax highlighted code block
+Mathematical theory to describe what learning is - by Kolmogoroff and Solomonoff in 60s. Impossible to implement in real life.
 
-# Header 1
-## Header 2
-### Header 3
+Def. a definition of object X is a computer program that prints X
 
-- Bulleted
-- List
+K(X) = shortest length of such a program - Kolmogoroff complexity
 
-1. Numbered
-2. List
+Learning can be concidered as compression - reducing the dimensionalty of data. When learning we try to smallest possible representation of our data, without redundencies and taking in the account all regularities.
 
-**Bold** and _Italic_ and `Code` text
+Several bounds can be pointed out when talking about Kolmogoroff complexity:
+1) K(f(x)) <= K(x) + K(f) + const, where f is a re-encoding
 
-[Link](url) and ![Image](src)
-```
+2) Let K_1 and K_2 be the Kolmogoroff complexities wrt 2 programming languages. Then there exists C12 | for each x |K_1(x) - K_2(x)| <= C12. C12 can be considered as the size of the interpreter between K_1 and K_2.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+3) K(x) <= length(x) + length("print") + 2*log(length(x))
 
-### Jekyll Themes
+4) K(x) <= length(zip(x)) + length(unzip)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/AndreyBesedin/AndreyBesedin.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+5) If x is an element or subset of E, then K(x) <= K(E) + log(|E|)
 
-### Support or Contact
+6) For any probability distribution p, K(x) <= K(p) + log(1/p(x))
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+M(x, y) = K(x) + K(y) - K(xy) can be considered as a measure of distance between x and y (analogue of enthropy)
+
+Then followed a small introduction of Neural Networks. Points, that were interesting for me: 
+1) NN can theoretically represent any possible function.
+2) From statistical (and complexity) point of view having amodel with more parameters than the available data size has no sense.
+3) Small introduction to variational methods to overcome over-fitting. The goal is not just to find weight of NN where the solution is "good", but find weights that are "good" with their whole epsilon-environment.
+
+Then small intro to auto-encoders and its application to natural language processing and translation was made.
+
+
+
